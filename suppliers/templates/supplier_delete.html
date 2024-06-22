@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    Supply Delete
+{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-4">
+        <h3 class="display-6">Supply Delete</h3>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Are sure that you want to delete <strong>{{ object.name }}</strong> supplier?</p>
+                <form method="post" class="form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger mt-3">Delete</button>
+                </form>
+            </div>
+        </div>
+        <a href="{% url 'supplier_list' %}" class="btn btn-secondary mt-3">
+            Cancel and back to the Supply's List
+        </a>
+    </div>
+
+{% endblock %}
