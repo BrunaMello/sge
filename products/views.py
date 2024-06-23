@@ -19,6 +19,12 @@ class ProductListView(ListView):
 
 		return queryset
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['categories'] = models.Category.objects.all()  # mostrar as outras tabelas na view.
+		context['brands'] = models.Brand.objects.all()
+		return context
+
 
 class ProductCreateView(CreateView):
 	model = models.Product
