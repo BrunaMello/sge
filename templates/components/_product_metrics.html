@@ -10,7 +10,7 @@
                         <h5 class="card-title">
                             Products Quantity
                         </h5>
-                        <p class="card-text text-white font-weight-bold display-6">1000</p>
+                        <p class="card-text text-white font-weight-bold display-6">{{ product_metrics.total_quantity }}</p>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                         <h5 class="card-title">
                            Stock Cost
                         </h5>
-                        <p class="card-text text-white font-weight-bold display-6">100000</p>
+                        <p class="card-text text-white font-weight-bold display-6">€ {{ product_metrics.total_cost_price }}</p>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <h5 class="card-title">
                             Stock Value
                         </h5>
-                        <p class="card-text text-white font-weight-bold display-6">600000</p>
+                        <p class="card-text text-white font-weight-bold display-6">€ {{ product_metrics.total_selling_price }}</p>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         <h5 class="card-title">
                             Stock Profit
                         </h5>
-                        <p class="card-text text-white font-weight-bold display-6">800000</p>
+                        <p class="card-text text-white font-weight-bold display-6">€ {{ product_metrics.total_profit }}</p>
                     </div>
                 </div>
                 
