@@ -9,9 +9,9 @@
     {% include 'components/_product_metrics.html' %}
     
     {% include 'components/_sales_metrics.html' %}
-    
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <div class="row mt-4 justify-content-center">
       <div class="col-md-6 text-center">
         <h5 class="text-center mb-3">Valor de vendas (Últimos 7 Dias)</h5>
@@ -24,8 +24,8 @@
       <script>
         document.addEventListener("DOMContentLoaded", function() {
           var dailySalesData = JSON.parse('{{ daily_sales_data|safe }}');
-          {#var dailySalesQuantityData = JSON.parse('{{ daily_sales_quantity_data|safe }}');#}
-    
+          var dailySalesQuantityData = JSON.parse('{{ daily_sales_quantity_data|safe }}');
+
           var ctxDailySales = document.getElementById('dailySalesChart').getContext('2d');
           var dailySalesChart = new Chart(ctxDailySales, {
             type: 'line',
@@ -48,28 +48,28 @@
               }
             }
           });
-    
-          {#var ctxDailySalesQuantity = document.getElementById('dailySalesQuantityChart').getContext('2d');#}
-          {#var dailySalesQuantityChart = new Chart(ctxDailySalesQuantity, {#}
-          {#  type: 'bar',#}
-          {#  data: {#}
-          {#    labels: dailySalesQuantityData.dates,#}
-          {#    datasets: [{#}
-          {#      label: 'Quantidade de Vendas',#}
-          {#      data: dailySalesQuantityData.values,#}
-          {#      backgroundColor: 'rgba(255, 99, 132, 0.6)',#}
-          {#      borderColor: 'rgba(255, 99, 132, 1)',#}
-          {#      borderWidth: 1#}
-          {#    }]#}
-          {#  },#}
-          {#  options: {#}
-          {#    scales: {#}
-          {#      y: {#}
-          {#        beginAtZero: true#}
-          {#      }#}
-          {#    }#}
-          {#  }#}
-          {#);#}
+
+         var ctxDailySalesQuantity = document.getElementById('dailySalesQuantityChart').getContext('2d');
+          var dailySalesQuantityChart = new Chart(ctxDailySalesQuantity, {
+            type: 'bar',
+            data: {
+              labels: dailySalesQuantityData.dates,
+              datasets: [{
+                label: 'Quantidade de Vendas',
+                data: dailySalesQuantityData.values,
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
         });
       </script>
     </div>
