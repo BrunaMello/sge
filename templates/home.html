@@ -14,11 +14,11 @@
 
     <div class="row mt-4 justify-content-center">
       <div class="col-md-6 text-center">
-        <h5 class="text-center mb-3">Valor de vendas (Últimos 7 Dias)</h5>
+        <h5 class="text-center mb-3">Sales Value (Last 7 Days)</h5>
         <canvas id="dailySalesChart"></canvas>
       </div>
       <div class="col-md-6 text-center">
-        <h5 class="text-center mb-3">Quantidade de Vendas Diárias</h5>
+        <h5 class="text-center mb-3">Daily Sales Quantity</h5>
         <canvas id="dailySalesQuantityChart"></canvas>
       </div>
       <script>
@@ -32,7 +32,7 @@
             data: {
               labels: dailySalesData.dates,
               datasets: [{
-                label: 'Valor em vendas',
+                label: 'Sales Value',
                 data: dailySalesData.values,
                 fill: false,
                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -55,7 +55,7 @@
             data: {
               labels: dailySalesQuantityData.dates,
               datasets: [{
-                label: 'Quantidade de Vendas',
+                label: 'Sales Quantity',
                 data: dailySalesQuantityData.values,
                 backgroundColor: 'rgba(255, 99, 132, 0.6)',
                 borderColor: 'rgba(255, 99, 132, 1)',
@@ -73,5 +73,70 @@
         });
       </script>
     </div>
+    
+    <div class="row mt-4 justify-content-center">
+    
+      <div class="col-md-6 text-center">
+        <h5 class="mb-3">Products by Category</h5>
+        <div class="mb-4"></div>
+          <div class="embed-responsive embed-responsive-1by1" style="width: 400px; display: inline-block;">
+              <canvas id="productByCategoryChart" class="embed-responsive-item"></canvas>
+          </div>
+      </div>
+        
+      <div class="col-md-6 text-center">
+        <h5 class="mb-3">Products by Brand</h5>
+        <div class="mb-4"></div>
+          <div style="width: 400px; display: inline-block;">
+              <canvas id="productByBrandChart" class="embed-responsive-item"></canvas>
+          </div>
+      </div> 
+        
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {  
+          var productCountByCategory = JSON.parse('{{ product_count_by_category|safe }}');
+          var productCountByBrand = JSON.parse('{{ product_count_by_brand|safe }}');
+    
+          var ctxCategory = document.getElementById('productByCategoryChart').getContext('2d');
+          var productByCategoryChart = new Chart(ctxCategory, {
+            type: 'doughnut',
+            data: {
+              labels: Object.keys(productCountByCategory),
+              datasets: [{
+                data: Object.values(productCountByCategory),
+                borderWidth: 1
+              }]
+            },
+            options: {
+              plugins: {
+                legend: {
+                  display: false
+                },
+              }
+            }
+          });
+    
+          var ctxBrand = document.getElementById('productByBrandChart').getContext('2d');
+          var productByBrandChart = new Chart(ctxBrand, {
+            type: 'doughnut',
+            data: {
+              labels: Object.keys(productCountByBrand),
+              datasets: [{
+                data: Object.values(productCountByBrand),
+                borderWidth: 1
+              }]
+            },
+            options: {
+              plugins: {
+                legend: {
+                  display: false
+                },
+              }
+            }
+          });
+        });
+      </script>
+    </div>
+
 
 {% endblock %}
