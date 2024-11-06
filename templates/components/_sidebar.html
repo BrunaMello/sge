@@ -49,6 +49,19 @@
               <span class="ms-1">Outflow</span>
             </a>
           </li>
+            <li class="nav-item">
+                {% if user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="post" id="logout-form" class="nav-link px-0 align-middle">
+                        {% csrf_token %}
+                    <button type="submit" class="btn btn-link text-decoration-none text-reset nav-link px-0 align-middle">
+                        <i class="bi bi-box-arrow-right fs-4 align-middle"></i>
+                        <span class="ms-1 align-middle">Logout</span>
+                    </button>
+                    </form>
+                
+                {% endif %}
+            
+          </li>
         </ul>
       </div>
       <hr>
