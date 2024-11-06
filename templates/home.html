@@ -73,9 +73,9 @@
         });
       </script>
     </div>
-    
+
     <div class="row mt-4 justify-content-center">
-    
+
       <div class="col-md-6 text-center">
         <h5 class="mb-3">Products by Category</h5>
         <div class="mb-4"></div>
@@ -83,20 +83,20 @@
               <canvas id="productByCategoryChart" class="embed-responsive-item"></canvas>
           </div>
       </div>
-        
+
       <div class="col-md-6 text-center">
         <h5 class="mb-3">Products by Brand</h5>
         <div class="mb-4"></div>
           <div style="width: 400px; display: inline-block;">
               <canvas id="productByBrandChart" class="embed-responsive-item"></canvas>
           </div>
-      </div> 
-        
+      </div>
+
       <script>
-        document.addEventListener("DOMContentLoaded", function() {  
+        document.addEventListener("DOMContentLoaded", function() {
           var productCountByCategory = JSON.parse('{{ product_count_by_category|safe }}');
           var productCountByBrand = JSON.parse('{{ product_count_by_brand|safe }}');
-    
+
           var ctxCategory = document.getElementById('productByCategoryChart').getContext('2d');
           var productByCategoryChart = new Chart(ctxCategory, {
             type: 'doughnut',
@@ -115,7 +115,7 @@
               }
             }
           });
-    
+
           var ctxBrand = document.getElementById('productByBrandChart').getContext('2d');
           var productByBrandChart = new Chart(ctxBrand, {
             type: 'doughnut',
