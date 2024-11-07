@@ -23,12 +23,15 @@
                 </div>
             </form>
         </div>
-        <div class="col mb-6">
-            <a href="{% url 'product_create' %}" class="btn btn-success float-end">
-                <i class="bi bi-plus">New Product</i>
-            </a>
+        {% if perms.products.add_product %}
 
-        </div>
+            <div class="col mb-6">
+                <a href="{% url 'product_create' %}" class="btn btn-success float-end">
+                    <i class="bi bi-plus">New Product</i>
+                </a>
+
+            </div>
+        {% endif %}
     </div>
 
     <div class="row mb-3">

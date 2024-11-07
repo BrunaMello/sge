@@ -13,12 +13,14 @@
               <span class="ms-1">Dashboard</span>
             </a>
           </li>
+        {% if perms.suppliers.view_supplier %}
           <li>
             <a href="{% url 'supplier_list' %}" class="nav-link px-0 align-middle">
               <i class="bi bi-truck fs-4"></i>
               <span class="ms-1">Supplier</span>
             </a>
           </li>
+        {% endif %}
             {% if perms.brands.view_brand %}
               <li>
                     <a href="{% url 'brand_list' %}" class="nav-link px-0 align-middle">
@@ -27,30 +29,38 @@
                     </a>
               </li>
             {% endif %}
+        {% if perms.categories.view_category %}
           <li>
             <a href="{% url 'category_list' %}" class="nav-link px-0 align-middle">
               <i class="bi bi-tags fs-4"></i>
               <span class="ms-1">Category</span>
             </a>
           </li>
+        {% endif %}
+        {% if perms.products.view_product %}
           <li>
             <a href="{% url 'product_list' %}" class="nav-link px-0 align-middle">
               <i class="bi bi-box-seam fs-4"></i>
               <span class="ms-1">Products</span>
             </a>
           </li>
+        {% endif %}
+        {% if perms.inflows.view_inflow %}
           <li>
             <a href="{% url 'inflow_list' %}" class="nav-link px-0 align-middle">
               <i class="bi bi-arrow-down-left-square fs-4"></i>
               <span class="ms-1">Inflows</span>
             </a>
           </li>
+        {% endif %}
+        {% if perms.outflows.view_outflow %}
           <li>
             <a href="{% url 'outflow_list' %}" class="nav-link px-0 align-middle">
               <i class="bi bi-arrow-up-right-square fs-4"></i>
               <span class="ms-1">Outflow</span>
             </a>
           </li>
+        {% endif %}
             <li class="nav-item">
                 {% if user.is_authenticated %}
                     <form action="{% url 'logout' %}" method="post" id="logout-form" class="nav-link px-0 align-middle">
@@ -60,12 +70,11 @@
                         <span class="ms-1 align-middle">Logout</span>
                     </button>
                     </form>
-                
                 {% endif %}
-            
           </li>
         </ul>
       </div>
       <hr>
     </div>
   </div>
+</div>
