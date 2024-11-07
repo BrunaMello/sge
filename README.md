@@ -31,8 +31,8 @@ brands, suppliers, inflows, and outflows. The application also provides various 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/yourproject.git
-    cd yourproject
+    git clone https://github.com/BrunaMello/sge.git
+    cd sge
     ```
 
 2. Create a virtual environment and activate it:
@@ -61,7 +61,7 @@ brands, suppliers, inflows, and outflows. The application also provides various 
     python manage.py runserver
     ```
 
-7. Open your browser and go to `http://127.0.0.1:8000/`.
+7. Open your browser and go to `http://localhost:8000/`.
 
 ## Usage
 
